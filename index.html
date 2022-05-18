@@ -8,6 +8,10 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+      const res1 = document.querySelector(".res span:nth-child(1)");
+      const res2 = document.querySelector(".res span:nth-child(2)");
+    </script>
     <script src="sketch.js"></script>
     <script type="text/babel">
       const root = document.getElementById("root");
@@ -31,15 +35,21 @@
           a = 700;
           dx = 0;
           da = 0;
+          j1 = 0;
+          j2 = 0;
           dxp = 0;
           dap = 0;
           collide = false;
+          res1.innerText = "";
+          res2.innerText = "";
         };
         const run = () => {
           dx = v1;
           da = -v2;
-          dxp = v1 - ((m2 * (1 + e)) / (m1 + m2)) * (v1 + v2);
-          dap = -v2 + ((m2 * (1 + e)) / (m1 + m2)) * (v1 + v2);
+          j1 = m1;
+          j2 = m2;
+          dxp = parseFloat(v1 - ((m2 * (1 + e)) / (m1 + m2)) * (v1 + v2));
+          dap = parseFloat(-v2 + ((m1 * (1 + e)) / (m1 + m2)) * (v1 + v2));
         };
         return (
           <div class="box">
@@ -60,6 +70,7 @@
               <button onClick={run}>실행</button>
             </form>
             <button onClick={reset}>초기화</button>
+            <div class="res"></div>
           </div>
         );
       };
@@ -87,6 +98,11 @@
       }
       .inputs input {
         width: 50px;
+      }
+      .res {
+        width: 600px;
+        display: flex;
+        justify-content: space-around;
       }
     </style>
     <title>BANBAL GYESU</title>

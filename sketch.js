@@ -8,6 +8,8 @@ function setup() {
   da = 0;
   dxp = 0;
   dap = 0;
+  j1 = 0;
+  j2 = 0;
 }
 
 function draw() {
@@ -15,13 +17,17 @@ function draw() {
   if (x + 50 >= a - 50) {
     collide = true;
   }
+  circle(x, y, 100);
+  circle(a, y, 100);
   if (collide) {
     x = x + dxp;
     a = a + dap;
+    text(`${dxp}m/s\n${j1}kg`, x - 15, y);
+    text(`${dap}m/s\n${j2}kg`, a - 15, y);
   } else {
     x = x + dx;
     a = a + da;
+    text(`${dx}m/s\n${j1}kg`, x - 15, y);
+    text(`${da}m/s\n${j2}kg`, a - 15, y);
   }
-  circle(x, y, 100);
-  circle(a, y, 100);
 }
