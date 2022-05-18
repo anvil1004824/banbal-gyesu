@@ -8,10 +8,6 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script>
-      const res1 = document.querySelector(".res span:nth-child(1)");
-      const res2 = document.querySelector(".res span:nth-child(2)");
-    </script>
     <script src="sketch.js"></script>
     <script type="text/babel">
       const root = document.getElementById("root");
@@ -40,8 +36,6 @@
           dxp = 0;
           dap = 0;
           collide = false;
-          res1.innerText = "";
-          res2.innerText = "";
         };
         const run = () => {
           dx = v1;
